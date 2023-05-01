@@ -142,7 +142,7 @@ export default function MainPage() {
   //     setDataItem(selectedItem);
   //   }
   // }, [selectedItem]);
- 
+
   return (
     <Layout>
       <Sider className="h-auto">
@@ -187,8 +187,11 @@ export default function MainPage() {
           <Row>
             <Col xs={24} sm={12} md={12} lg={8}>
               <Card title="NEWEST" bordered={true} style={{ width: 300 }}>
-                {data.map((item, index) => (
-                  <Card.Grid style={gridStyle} onClick={() => handleClick(item)}>
+                {data.map((item) => (
+                  <Card.Grid
+                    style={gridStyle}
+                    onClick={() => handleClick(item)}
+                  >
                     <ListItem data={item} />
                   </Card.Grid>
                 ))}
@@ -196,7 +199,7 @@ export default function MainPage() {
             </Col>
             <Col xs={24} sm={12} md={12} lg={8}>
               {dataItem.map((item, index) => (
-                <RecordItem data={item} index={index}/>
+                <RecordItem data={item} index={index} />
               ))}
             </Col>
             <Col xs={21} sm={21} md={21} lg={5} offset={3}>
@@ -223,7 +226,7 @@ export default function MainPage() {
             </Col>
           </Row>
         </Content>
-      <TimeLine />
+        <TimeLine data={dataItem} />
       </Layout>
     </Layout>
   );
