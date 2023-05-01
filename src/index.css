@@ -15,3 +15,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+aside {
+  width: 72px !important;
+  max-width: 72px !important;
+  min-width: 72px !important;
+  /* background-color: white !important; */
+}
+
+main {
+  background-color: #d1dfec !important; /* Replace with the color of your choice */
+}
+
+svg {
+  margin-bottom: 5px;
+}
