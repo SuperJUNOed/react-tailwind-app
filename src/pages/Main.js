@@ -124,11 +124,9 @@ export default function MainPage() {
     token: { colorBgContainer },
   } = theme.useToken();
   const [data, setData] = useState([]);
-  // const [selectedItem, setSelectedItem] = useState(null);
   const [dataItem, setDataItem] = useState([]);
 
   const handleClick = (item) => {
-    // setSelectedItem(item);
     setDataItem(item);
   };
 
@@ -136,12 +134,6 @@ export default function MainPage() {
     const outputJSON = convertAllToJSON(transData);
     setData(outputJSON);
   }, []);
-
-  // useEffect(() => {
-  //   if (selectedItem) {
-  //     setDataItem(selectedItem);
-  //   }
-  // }, [selectedItem]);
 
   return (
     <Layout>
@@ -178,9 +170,7 @@ export default function MainPage() {
         </Header>
         <Content
           style={{
-            margin: "24px 16px",
             padding: 24,
-            minHeight: 280,
             background: colorBgContainer,
           }}
         >
