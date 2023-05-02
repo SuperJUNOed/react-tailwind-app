@@ -46,3 +46,23 @@ svg {
   border-radius: 8px;
   background-color: #2c3e50;
 }
+
+.apexcharts-legend {
+  top: unset !important;
+  right: unset !important;
+}
+.apexcharts-canvas > svg {
+  height: 460px;
+}
+
+.apexcharts-canvas > svg > foreignObject {
+  height: 320px;
+}
+
+.apexcharts-canvas > svg > g {
+  padding-left: 200px;
+}
+
+.apexcharts-canvas > svg > foreignObject {
+  padding-left: 100px;
+}

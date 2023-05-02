@@ -4,7 +4,7 @@ import {
   VideoCameraOutlined,
   PlusSquareOutlined,
 } from "@ant-design/icons";
-import { Card, Col, Layout, Menu, Row, theme } from "antd";
+import { Card, Col, Layout, Menu, Row } from "antd";
 import ReactApexChart from "react-apexcharts";
 import RecordItem from "../components/RecordItem";
 import ListItem from "../components/ListItem";
@@ -121,9 +121,6 @@ function convertAllToJSON(inputStr) {
 }
 
 export default function MainPage() {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
   const [data, setData] = useState([]);
   const [dataItem, setDataItem] = useState([]);
 
@@ -134,9 +131,9 @@ export default function MainPage() {
     },
     series: [40, 60],
     labels: ["Agent", "Client"],
-    colors: ["#582fa6", "#58c8d8"],
+    colors: ["#FB36F4", "#1FC5A8"],
     legend: {
-      show: false,
+      show: true,
     },
   };
 
@@ -151,7 +148,7 @@ export default function MainPage() {
 
   return (
     <Layout className="h-screen">
-      <Sider>
+      <Sider className="bg-gradient-to-br from-my-from-color to-my-to-color">
         <div className="logo" />
         <Menu
           theme="dark"
@@ -174,18 +171,12 @@ export default function MainPage() {
         />
       </Sider>
       <Layout>
-        <Header
-          style={{
-            padding: 0,
-            background: colorBgContainer,
-          }}
-        >
+        <Header className="bg-gradient-to-br from-my-from-color to-my-to-color">
           <PlusSquareOutlined style={{ width: 100, height: 100 }} />
         </Header>
         <Content
           style={{
             padding: 24,
-            background: colorBgContainer,
           }}
           className="relative"
         >
@@ -223,7 +214,7 @@ export default function MainPage() {
             >
               <RecordItem data={dataItem} />
             </Col>
-            <Col xs={24} sm={24} md={24} lg={8}>
+            <Col className="pl-20" xs={24} sm={24} md={24} lg={8}>
               <ReactApexChart
                 options={chartOptions}
                 series={chartOptions.series}

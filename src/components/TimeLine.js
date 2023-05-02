@@ -9,9 +9,9 @@ export default function TimeLine({ data = [] }) {
     timeArray.length > 0 ? timeArray[timeArray.length - 1].endTime : null;
 
   return (
-    <div className="bottom-0 left-0 w-full bg-white p-3">
+    <div className="bottom-0 left-0 w-full bg-gradient-to-br from-my-from-color to-my-to-color p-3">
       <div className="flex pr-1">
-        <div className="flex text-client-color">
+        <div className="flex" style={{ color: "#1FC5A8" }}>
           Client
           <Divider
             type="vertical"
@@ -30,7 +30,7 @@ export default function TimeLine({ data = [] }) {
                 }}
               >
                 <div
-                  className={index % 2 === 0 ? "h-full" : "h-full bg-client"}
+                  className={index % 2 === 0 ? "h-full" : "h-full bg-gradient-to-br from-client-from-color to-client-to-color"}
                   style={{ width: "100%", height: "60%" }}
                 ></div>
               </div>
@@ -39,7 +39,7 @@ export default function TimeLine({ data = [] }) {
         </div>
       </div>
       <div className="flex pr-1">
-        <div className="flex text-agent-color">
+        <div className="flex" style={{ color: "#FB36F4" }}>
           Agent
           <Divider
             className="ml-4"
@@ -59,7 +59,7 @@ export default function TimeLine({ data = [] }) {
                 }}
               >
                 <div
-                  className={index % 2 === 0 ? "h-full bg-agent" : "h-full"}
+                  className={index % 2 === 0 ? "h-full bg-gradient-to-br from-agent-from-color to-agent-to-color" : "h-full"}
                   style={{ width: "100%", height: "60%" }}
                 ></div>
               </div>
@@ -73,7 +73,7 @@ export default function TimeLine({ data = [] }) {
           <Divider type="vertical" style={{ marginTop: "6px" }} />
         </div>
         <div className="flex w-full items-center">
-          <div className="text-ts">0</div>
+          <div className="text-ts"></div>
           {timeArray.map((item, index) => {
             return (
               <div

@@ -6,8 +6,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "agent-color": "#582fa6",
-        "client-color": "#58c8d8",
+        "agent-from-color": "#FF3E9D",
+        "agent-to-color": "#0E1F40",
+        "client-from-color": "#5761B2",
+        "client-to-color": "#1FC5A8",
+        "my-from-color": "#FDFCFB",
+        "my-to-color": "#E2D1C3",
       },
       fontSize: {
         xxs: "0.5rem",
