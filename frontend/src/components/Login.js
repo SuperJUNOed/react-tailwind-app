@@ -28,7 +28,7 @@ export default function Login() {
     });
 
     if (response.ok) {
-      window.location.href = '/dashboard';
+      window.location.href = '/';
     } else {
       const data = await response.json();
       alert(data.message);
