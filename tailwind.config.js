@@ -11,6 +11,7 @@ module.exports = {
       },
       fontSize: {
         xxs: "0.5rem",
+        ts: "0.625rem",
       },
       backgroundColor: {
         "agent": "#582fa6",

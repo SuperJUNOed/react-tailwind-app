@@ -4,7 +4,8 @@ import {
   VideoCameraOutlined,
   PlusSquareOutlined,
 } from "@ant-design/icons";
-import { Card, Col, Layout, Menu, Row, theme, Progress, Space } from "antd";
+import { Card, Col, Layout, Menu, Row, theme } from "antd";
+import ReactApexChart from "react-apexcharts";
 import RecordItem from "../components/RecordItem";
 import ListItem from "../components/ListItem";
 import TimeLine from "../components/TimeLine";
@@ -126,6 +127,19 @@ export default function MainPage() {
   const [data, setData] = useState([]);
   const [dataItem, setDataItem] = useState([]);
 
+  const chartOptions = {
+    // Configuration options
+    chart: {
+      type: "pie",
+    },
+    series: [40, 60],
+    labels: ["Agent", "Client"],
+    colors: ["#582fa6", "#58c8d8"],
+    legend: {
+      show: false,
+    },
+  };
+
   const handleClick = (item) => {
     setDataItem(item);
   };
@@ -136,8 +150,8 @@ export default function MainPage() {
   }, []);
 
   return (
-    <Layout>
-      <Sider className="h-auto">
+    <Layout className="h-screen">
+      <Sider>
         <div className="logo" />
         <Menu
           theme="dark"
@@ -173,10 +187,20 @@ export default function MainPage() {
             padding: 24,
             background: colorBgContainer,
           }}
+          className="relative"
         >
-          <Row>
-            <Col xs={24} sm={12} md={12} lg={8}>
-              <Card title="NEWEST" bordered={true} style={{ width: 300 }}>
+          <Row gutter={50}>
+            <Col
+              xs={24}
+              sm={12}
+              md={12}
+              lg={8}
+              style={{
+                height: "460px",
+                overflow: "auto",
+              }}
+            >
+              <Card title="NEWEST" bordered={true}>
                 {data.map((item) => (
                   <Card.Grid
                     style={gridStyle}
@@ -187,32 +211,25 @@ export default function MainPage() {
                 ))}
               </Card>
             </Col>
-            <Col xs={24} sm={12} md={12} lg={8}>
-              {dataItem.map((item, index) => (
-                <RecordItem data={item} index={index} />
-              ))}
+            <Col
+              xs={24}
+              sm={12}
+              md={12}
+              lg={8}
+              style={{
+                height: "460px",
+                overflow: "auto",
+              }}
+            >
+              <RecordItem data={dataItem} />
             </Col>
-            <Col xs={21} sm={21} md={21} lg={5} offset={3}>
-              <Space wrap direction="vertical">
-                <Progress
-                  type="circle"
-                  percent="90"
-                  strokeColor={{
-                    "0%": "#108ee9",
-                    "100%": "#87d068",
-                  }}
-                />
-                <p className="font-black text-blue-700 text-center">POSITIVE</p>
-                <Progress
-                  type="circle"
-                  percent="70"
-                  strokeColor={{
-                    "0%": "#ff0000",
-                    "100%": "#000000",
-                  }}
-                />
-                <p className="font-black text-red-700 text-center">NEGATIVE</p>
-              </Space>
+            <Col xs={24} sm={24} md={24} lg={8}>
+              <ReactApexChart
+                options={chartOptions}
+                series={chartOptions.series}
+                type="pie"
+                height={350}
+              />
             </Col>
           </Row>
         </Content>

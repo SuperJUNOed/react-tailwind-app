@@ -7,7 +7,7 @@ export default function ListItem({data=[]}) {
   return (
     <div>
           <div>
-            {data[0].transcription.slice(0, 17) + "    ....."}
+            {data[0].transcription.slice(0, 30) + "    ....."}
             <PlayCircleOutlined className="pl-10 pr-4" />
             <ClockCircleOutlined className="pr-1" />
             6:30
