@@ -28,6 +28,11 @@ main {
   background-color: #d1dfec !important; /* Replace with the color of your choice */
 }
 
+.ant-layout-header {
+  height: fit-content;
+  padding: 0px;
+}
+
 svg {
   margin-bottom: 5px;
 }

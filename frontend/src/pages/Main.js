@@ -1,8 +1,8 @@
+import axios from "axios";
 import {
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  PlusSquareOutlined,
 } from "@ant-design/icons";
 import { Card, Col, Layout, Menu, Row } from "antd";
 import ReactApexChart from "react-apexcharts";
@@ -14,111 +14,6 @@ const { Header, Sider, Content } = Layout;
 const gridStyle = {
   width: "100%",
 };
-const transData = `
-phonecalldata/test/call_recording_00bb93f2-db1b-4330-9fe1-d791b0abd2ce_20230223185358.wav:
-Transcription:
-[Speaker undefined(9)]: no my Transportation good morning this morning I can I help you hey Mother Goose just a little is Jeanette or oh yeah give me one second okay talk to you
-[Speaker undefined(61)]:  yeah Jesse There Jewelers can you give me a quote here or why I know the charge but as soon as you can do better on it on the quote it's a 7 pallet water picking up in Stockton 7 tablet order you know what call call Mark right now cuz right now we're trying to get these phones fixed and I got another shipment right now 62000 pounds I'm trying to
-[Speaker undefined(68)]:  okay yeah you have his number right 925-9089
-[Speaker undefined(77)]:  670 gyro 0 thank you
-{ score: '', content: '' }
-
-phonecalldata/test/call_recording_0a177af2-c0e7-4cc2-a6c7-3fa709f07a5e_20230210214723.wav:
-Transcription:
-[Speaker undefined(7)]: hello Mark McGrath real how are you alright
-[Speaker undefined(26)]:  so I just want to know like last time which trailer did you use it was a whole day or what the start time there's a little confusion regarding your trailer I've got the 1 Unit number 3 V 261 it's the fountain
-[Speaker undefined(35)]:  tell him okay TV to six months okay 3 V 261 okay thank you so much
-[Speaker undefined(39)]:  so what it what else going on
-[Speaker undefined(57)]:
-[Speaker undefined(64)]:
-{ score: '', content: '' }
-
-phonecalldata/test/call_recording_0a5832c7-a75a-46a7-a7ca-6c5f3decdb60_20230314222256.wav:
-Transcription:
-[Speaker undefined(6)]: thank you for calling Pacific Coast Express limited your cross border experts
-[Speaker undefined(14)]:  if you know the extension of the person you wish to speak with you can enter it anytime during this 
-message
-[Speaker undefined(19)]:  this call maybe recorded for quality assurance and training purposes
-[Speaker undefined(23)]:  please choose one of the following options
-[Speaker undefined(27)]:  for customer service and pick up press 1
-[Speaker undefined(29)]:
-[Speaker undefined(42)]:  Pacific Coast
-[Speaker undefined(46)]:
-{ score: '', content: '' }
-
-phonecalldata/test/call_recording_00ba5dc7-3766-4007-9852-a841afebee7e_20230310190900.wav:
-Transcription:
-[Speaker undefined(7)]: hey sorry hi this is how are you pretty good hey I just sent you
-[Speaker undefined(9)]:
-[Speaker undefined(13)]:  I just sent you a
-[Speaker undefined(38)]:  the pick up here for Pomona is you should be on your app already it's basically the same on the same Pol it has to Direction's but go to Pomona First are going to love you 10 skids and then you drop off in front and everything off load and then we're loaded back we'll go back to the Ontario one and lower again
-[Speaker undefined(80)]:  would you please I'm sorry it was my second line is I need to go first to Pomona correct pick up some load and we'll have Louis per seat Fontana correct and then after you upload your go back to Ontario and picked up the other 16 pallets you've told me she knows not area they're they're right next to each other they're they're building they're right 
-next to each other okay okay okay I see
-[Speaker undefined(95)]:  I see 2001 West Mission Boulevard a Pomona press 91766 okay okay pick up
-[Speaker undefined(125)]:  G FL C 11 got this got out of it it's it's two stops in the same Pol so it's the same order for the other ones as well so we're not gonna change anything we're just going to pick up the half load the first 10 and then come back to a different location so the other one so they're they're going to the same number so all of these I need to represent one B IL G FL C 11
-[Speaker undefined(132)]:  yeah yeah yeah just let you know this coming to pick up let me know
-[Speaker undefined(141)]:  okay okay okay thank you very much
-[Speaker undefined(144)]:
-{ score: '', content: '' }
-
-phonecalldata/test/call_recording_0a3363a5-f9f4-4538-a482-74f927d3f691_20230302220301.wav:
-Transcription:
-[Speaker undefined(11)]: dropping Jack this is 1 / 22 how are you sorry about that Jeff I was so caught up I couldn't call you earlier
-[Speaker undefined(28)]:
-[Speaker undefined(30)]:
-[Speaker undefined(40)]:
-[Speaker undefined(43)]:
-[Speaker undefined(54)]:
-[Speaker undefined(77)]:  Customs Department I will get back to you on this
-[Speaker undefined(83)]:  okay I'm also a coat on p.m. x 20 I guess
-[Speaker undefined(84)]:
-[Speaker undefined(87)]:
-[Speaker undefined(91)]:
-[Speaker undefined(95)]:
-[Speaker undefined(107)]:
-[Speaker undefined(119)]:
-[Speaker undefined(144)]:
-[Speaker undefined(157)]:
-[Speaker undefined(162)]:  you need to Pop's number from us if you have next 20
-[Speaker undefined(168)]:  okay I sure last day to send it to you okay okay thank you thank you
-{ score: '', content: '' }
-`;
-
-function convertToJSON(str) {
-  const newStr = str.replace(/\{.*\}/g, "");
-  const transcription = newStr.split("Transcription:")[1].trim();
-  const speakers = transcription.match(/\[Speaker\sundefined\(\d+\)\]:/g);
-  const splitTranscription = transcription
-    .split(/\[Speaker\sundefined\(\d+\)\]:/)
-    .filter((t) => t !== "");
-  const jsonOutput = [];
-
-  for (let i = 0; i < splitTranscription.length; i++) {
-    const transcription = newStr
-      .split("Transcription:")[0]
-      .replace(/:|\n/g, "");
-    const text = splitTranscription[i].trim();
-    const speaker = speakers[i].match(/\d+/)[0];
-    const obj = { transcription: transcription, speaker: speaker, text: text };
-    jsonOutput.push(obj);
-  }
-
-  return jsonOutput;
-}
-
-function convertAllToJSON(inputStr) {
-  const recordings = inputStr.split("\n\n");
-  const outputJSON = [];
-
-  for (let i = 0; i < recordings.length; i++) {
-    if (recordings[i]) {
-      const converted = convertToJSON(recordings[i]);
-      outputJSON.push(converted);
-    }
-  }
-
-  return outputJSON;
-}
 
 export default function MainPage() {
   const [data, setData] = useState([]);
@@ -129,7 +24,7 @@ export default function MainPage() {
     chart: {
       type: "pie",
     },
-    series: [40, 60],
+    series: [dataItem.negative, dataItem.positive],
     labels: ["Agent", "Client"],
     colors: ["#FB36F4", "#1FC5A8"],
     legend: {
@@ -142,8 +37,10 @@ export default function MainPage() {
   };
 
   useEffect(() => {
-    const outputJSON = convertAllToJSON(transData);
-    setData(outputJSON);
+    axios
+      .get("http://localhost:8080/api/data")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -171,8 +68,211 @@ export default function MainPage() {
         />
       </Sider>
       <Layout>
-        <Header className="bg-gradient-to-br from-my-from-color to-my-to-color">
-          <PlusSquareOutlined style={{ width: 100, height: 100 }} />
+        <Header>
+          <nav
+            class="flex-no-wrap relative flex w-full items-center justify-between bg-neutral-100 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
+            data-te-navbar-ref
+          >
+            <div class="flex w-full flex-wrap items-center justify-between px-3">
+              <button
+                class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                type="button"
+                data-te-collapse-init
+                data-te-target="#navbarSupportedContent1"
+                aria-controls="navbarSupportedContent1"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="[&>svg]:w-7">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="h-7 w-7"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
+                id="navbarSupportedContent1"
+                data-te-collapse-item
+              >
+                <a
+                  class="mb-4 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
+                  href="localhost:3000/main"
+                >
+                  <img
+                    src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp"
+                    style={{ height: "15px" }}
+                    alt=""
+                    loading="lazy"
+                  />
+                </a>
+                <ul
+                  class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
+                  data-te-navbar-nav-ref
+                >
+                  <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                    <a
+                      class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+                      href="localhost:3000/main"
+                      data-te-nav-link-ref
+                    >
+                      Main
+                    </a>
+                  </li>
+                  <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                    <a
+                      class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                      href="localhost:3000"
+                      data-te-nav-link-ref
+                    >
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="relative flex items-center">
+                <a
+                  class="mr-4 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                  href="localhost:3000/main"
+                >
+                  <span class="[&>svg]:w-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="h-5 w-5"
+                    >
+                      <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                    </svg>
+                  </span>
+                </a>
+
+                <div class="relative" data-te-dropdown-ref>
+                  <a
+                    class="hidden-arrow mr-4 flex items-center text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                    href="localhost:3000/main"
+                    id="dropdownMenuButton1"
+                    role="button"
+                    data-te-dropdown-toggle-ref
+                    aria-expanded="false"
+                  >
+                    <span class="[&>svg]:w-5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    <span class="absolute -mt-2.5 ml-2 rounded-[0.37rem] bg-danger px-[0.45em] py-[0.2em] text-[0.6rem] leading-none text-white">
+                      1
+                    </span>
+                  </a>
+                  <ul
+                    class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                    aria-labelledby="dropdownMenuButton1"
+                    data-te-dropdown-menu-ref
+                  >
+                    <li>
+                      <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                        href="localhost:3000/main"
+                        data-te-dropdown-item-ref
+                      >
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                        href="localhost:3000/main"
+                        data-te-dropdown-item-ref
+                      >
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                        href="localhost:3000/main"
+                        data-te-dropdown-item-ref
+                      >
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="relative" data-te-dropdown-ref>
+                  <a
+                    class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                    href="localhost:3000/main"
+                    id="dropdownMenuButton2"
+                    role="button"
+                    data-te-dropdown-toggle-ref
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg"
+                      class="rounded-full"
+                      style={{ height: "25px", width: "25px" }}
+                      alt=""
+                      loading="lazy"
+                    />
+                  </a>
+                  <ul
+                    class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                    aria-labelledby="dropdownMenuButton2"
+                    data-te-dropdown-menu-ref
+                  >
+                    <li>
+                      <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                        href="localhost:3000/main"
+                        data-te-dropdown-item-ref
+                      >
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                        href="localhost:3000/main"
+                        data-te-dropdown-item-ref
+                      >
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                        href="localhost:3000/main"
+                        data-te-dropdown-item-ref
+                      >
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
         </Header>
         <Content
           style={{
@@ -191,7 +291,7 @@ export default function MainPage() {
                 overflow: "auto",
               }}
             >
-              <Card title="NEWEST" bordered={true}>
+              <Card title="Records" bordered={true}>
                 {data.map((item) => (
                   <Card.Grid
                     style={gridStyle}
@@ -221,6 +321,19 @@ export default function MainPage() {
                 type="pie"
                 height={350}
               />
+              <div
+                className={
+                  dataItem.positive
+                    ? "pl-20 mt-14 text-4xl text-positive-color"
+                    : "pl-20 mt-14 text-4xl text-negative-color"
+                }
+              >
+                {dataItem.positive > dataItem.negative
+                  ? "POSITIVE"
+                  : dataItem.positive < dataItem.negative
+                  ? "NEGATIVE"
+                  : ""}
+              </div>
             </Col>
           </Row>
         </Content>

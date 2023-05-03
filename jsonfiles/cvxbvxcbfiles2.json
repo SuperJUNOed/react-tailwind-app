@@ -1,0 +1,37 @@
+{
+  "transcription":
+[
+ {
+   "START": "00:01",
+   "END": "00:30",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Hey, what's up, Al? Hey, man, I haven't heard anything from you guys all day about Portland. A numeral already? No, I didn't get nothing. Let me see here. Yeah. Send it to. Yeah, I did. Oh Stephen. Transport at gmail.com. Right. Mhm. Yeah, man. Send it. 16 minutes ago and I updated your manifest to 16 minutes ago."
+ },
+ {
+   "START": "00:30",
+   "END": "00:31",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Okay."
+ },
+ {
+   "START": "00:35",
+   "END": "00:45",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "So it is on for Portland then? Yeah, it is on. 1 p.m. appointment. I did it on your manifest, too. I added to your manifest. Your trip. Okay."
+ },
+ {
+   "START": "00:47",
+   "END": "00:50",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "All right, man. All right. I was just wondering. Okay. Talk to you later."
+ },
+ {
+   "START": "00:50",
+   "END": "00:52",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "No problem. Thank you, sir. Bye."
+ }
+],
+"positive":90,
+"negative":10
+}

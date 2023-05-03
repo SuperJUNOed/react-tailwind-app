@@ -1,0 +1,163 @@
+{
+ "transcription":
+[
+ {
+   "START": "00:02",
+   "END": "00:03",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Little Ross baking."
+ },
+ {
+   "START": "00:04",
+   "END": "00:07",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Hey, Ross, it's Austin calling from Moto. How are you?"
+ },
+ {
+   "START": "00:07",
+   "END": "00:08",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Oh, I'm fine, sir."
+ },
+ {
+   "START": "00:09",
+   "END": "00:21",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "I'm just calling you my colleague, Amin. Let me know. Guess he was trying to get a hold of you just to confirm a pickup for today. We haven't been able to get hold of."
+ },
+ {
+   "START": "00:21",
+   "END": "00:22",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "No, you're talking. It's Friday."
+ },
+ {
+   "START": "00:23",
+   "END": "00:26",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Tomorrow or for Friday. Yeah, you're right. You're right. Right."
+ },
+ {
+   "START": "00:26",
+   "END": "00:28",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Yeah. On Webster. Yeah."
+ },
+ {
+   "START": "00:28",
+   "END": "00:33",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Yeah. So we have two of them, right? We have two shipments that we're picking up for you, I think. Yeah."
+ },
+ {
+   "START": "00:33",
+   "END": "00:38",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "They're going to two separate. There's four skids to two each."
+ },
+ {
+   "START": "00:38",
+   "END": "00:50",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Okay, perfect. And then, um, I was just going to confirm, I don't know if you can confirm that they are ready to go. And then we just need the hours and whatnot just so we can get if they."
+ },
+ {
+   "START": "00:50",
+   "END": "00:55",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Could pick up, pick up after one. Do you know if it's going to be shipped out on the weekend?"
+ },
+ {
+   "START": "00:56",
+   "END": "01:03",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Yeah, well, it depends what time. I think we get it back to the dock, but I imagine that's the plan. Here, let me just double check."
+ },
+ {
+   "START": "01:03",
+   "END": "01:08",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Yeah, yeah, I can have it earlier. I'll work all evening if I have to. I just got to create them out."
+ },
+ {
+   "START": "01:09",
+   "END": "01:13",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "It's going to get shipped out for sure, man. I'm just looking at it here. Um, yeah."
+ },
+ {
+   "START": "01:13",
+   "END": "01:16",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "I mean, you guys got trucks leaving all the time, you know? Oh, yeah."
+ },
+ {
+   "START": "01:16",
+   "END": "01:17",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Heck, yeah, man."
+ },
+ {
+   "START": "01:18",
+   "END": "01:24",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "I got another one in there going to Atlanta. I don't know if you if you know about that one, but I got it's different."
+ },
+ {
+   "START": "01:25",
+   "END": "01:28",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "That's the other one. I think that I was meaning. Yeah."
+ },
+ {
+   "START": "01:29",
+   "END": "01:43",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Yeah, I, I, you guys have got that. I've got J and J brokerage down at Blaine looking after it. I just, I just got the iron tax number from them, so I just gave it to them. So they're going to do the paperwork up. So it should be pre-cleared today."
+ },
+ {
+   "START": "01:44",
+   "END": "01:45",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Oh, that's awesome."
+ },
+ {
+   "START": "01:46",
+   "END": "01:51",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "All right. I'll let you know when it's being pre-cleared. And get get the thing out of there."
+ },
+ {
+   "START": "01:51",
+   "END": "01:57",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Okay, cool. Did you want me to give you a call back at a certain time, or do you think you're going to call us back or."
+ },
+ {
+   "START": "01:58",
+   "END": "02:03",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Try me back? Make. Make one of my calls to one of your last calls of the day."
+ },
+ {
+   "START": "02:03",
+   "END": "02:06",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Okay. Sounds good, man. Sounds good. Yeah."
+ },
+ {
+   "START": "02:06",
+   "END": "02:09",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Thank you, sir. Yeah. You take care. Have a good day."
+ },
+ {
+   "START": "02:09",
+   "END": "02:11",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Bye bye, man. Thanks. Bye, now."
+ }
+],
+"positive":70,
+"negative":30
+}

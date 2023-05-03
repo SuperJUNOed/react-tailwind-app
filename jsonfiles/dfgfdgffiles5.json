@@ -1,0 +1,25 @@
+{
+  "transcription":
+[
+ {
+   "START": "00:05",
+   "END": "00:54",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Thank you for calling Sonapa, Canada. If you know your party's extension, please dial it. Now to dial by name, press one. To leave a message in our general mailbox, please press zero. For vendor relations, press two. You have reached the vendor relations group to speak with Mike Spar. Press one. Iwana Jack Press two. Elena Bracardi press three. To return to the previous menu, please press zero. Thank you for calling Sonapa, Canada. If you know your party's extension, please dial it. Now to dial by name, press one. To leave a message in our general mailbox, please press zero. For vendor relations, press two."
+ },
+ {
+   "START": "01:02",
+   "END": "01:08",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Hi, you've reached Sonderborg Canada Vendor relations. Please leave a detailed message and we'll get back to you as soon as possible. Thank you."
+ },
+ {
+   "START": "01:11",
+   "END": "01:31",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Hey there. Good morning. This is Joey calling in with modal transportation. I was trying to get a hold of your logistics department. Just looking to see if there's any way I can potentially be set up as one of your carriers for any of your cross-border shipping or within domestic Canada. If you can, please give me a call back at (562) 286-7866. Thank you."
+ }
+],
+"positive":95,
+"negative":5
+}

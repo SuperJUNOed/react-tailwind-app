@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs");
 
 const app = express();
 
@@ -23,6 +24,32 @@ app.post("/login", async (req, res) => {
   } else {
     return res.status(401).json({ message: "Invalid email or password" });
   }
+});
+
+app.get('/api/data', (req, res) => {
+  fs.readdir('./jsonfiles', (err, files) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send('Error retrieving data');
+    } else {
+      const data = [];
+
+      files.forEach(file => {
+        fs.readFile(`./jsonfiles/${file}`, 'utf8', (err, jsonData) => {
+          if (err) {
+            console.log(err);
+            res.status(500).send('Error retrieving data');
+          } else {
+            data.push(JSON.parse(jsonData));
+
+            if (data.length === files.length) {
+              res.json(data);
+            }
+          }
+        });
+      });
+    }
+  });
 });
 
 // set port, listen for requests

@@ -6,6 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "negative-color": "#FB36F4",
+        "positive-color": "#1FC5A8",
         "agent-from-color": "#FF3E9D",
         "agent-to-color": "#0E1F40",
         "client-from-color": "#5761B2",

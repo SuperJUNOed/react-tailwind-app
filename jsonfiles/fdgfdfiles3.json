@@ -1,0 +1,84 @@
+{
+  "transcription":[
+ {
+   "START": "00:00",
+   "END": "00:07",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Thank you for calling RC Freight Canada. Please be advised that your call may be recorded for training and educational purposes. For."
+ },
+ {
+   "START": "00:07",
+   "END": "00:10",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Please wait while I transfer your call."
+ },
+ {
+   "START": "00:12",
+   "END": "00:15",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Join the YRC freight customers who enjoy fast."
+ },
+ {
+   "START": "00:29",
+   "END": "00:30",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "I say Good morning."
+ },
+ {
+   "START": "00:30",
+   "END": "00:33",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Hi. Can I get an update on a delivery, please?"
+ },
+ {
+   "START": "00:35",
+   "END": "00:36",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Can I have the pearl?"
+ },
+ {
+   "START": "00:36",
+   "END": "00:43",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Yes. It's (705) 296-5106."
+ },
+ {
+   "START": "01:02",
+   "END": "01:03",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Delivered in Oregon?"
+ },
+ {
+   "START": "01:04",
+   "END": "01:05",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Yes."
+ },
+ {
+   "START": "01:09",
+   "END": "01:14",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "This was picked up yesterday. It is at the Burnaby terminal. It's loading."
+ },
+ {
+   "START": "01:15",
+   "END": "01:20",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Okay. Did you guys, um. Did you guys receive the entry already, or is that pending?"
+ },
+ {
+   "START": "01:23",
+   "END": "01:25",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "The documents have been submitted and accepted. Yeah."
+ },
+ {
+   "START": "01:26",
+   "END": "01:30",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Okay. All right. Sounds good. Thank you. Thank you. Bye."
+ }
+],
+"positive":85,
+"negative":15
+}

@@ -1,0 +1,55 @@
+{
+  "transcription":
+[
+ {
+   "START": "00:01",
+   "END": "00:09",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Hello? Hello? Hey. Sorry. Yeah, so I just spoke with them, and there are only open till 3 p.m. and they're going to open tomorrow at 7 a.m.."
+ },
+ {
+   "START": "00:10",
+   "END": "00:19",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "The open until 3 p.m.. Alone? Yeah. Yeah. Copy. So they will open at 7:00 and I can arrive at seven."
+ },
+ {
+   "START": "00:20",
+   "END": "00:21",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Yes, that's correct."
+ },
+ {
+   "START": "00:21",
+   "END": "00:47",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Copy. Copy that. Thank you very much. All right, So do Bakersfield tomorrow. Could you. Could you advise Jesse, please, if I can have some other pickup in Los Angeles tomorrow? Because I will do Compton and Bakersfield early in the morning and before the noon, I will be empty. Okay."
+ },
+ {
+   "START": "00:47",
+   "END": "00:48",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "Sounds good. Man. Will let him know."
+ },
+ {
+   "START": "00:49",
+   "END": "00:52",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Copy that. Copy. Thank you very much. All right. Have a good day."
+ },
+ {
+   "START": "00:52",
+   "END": "00:53",
+   "SPEAKER": "Speaker 1",
+   "TEXT": "You too. Bye Bye."
+ },
+ {
+   "START": "00:54",
+   "END": "00:54",
+   "SPEAKER": "Speaker 2",
+   "TEXT": "Bye."
+ }
+],
+"positive":88,
+"negative":12
+}
