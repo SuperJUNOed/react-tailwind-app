@@ -40,7 +40,9 @@ app.get("/api/data", (req, res) => {
             console.log(err);
             res.status(500).send("Error retrieving data");
           } else {
-            data.push(JSON.parse(jsonData));
+            const dataObj = JSON.parse(jsonData);
+            dataObj.fileName = file;
+            data.push(dataObj);
 
             if (data.length === files.length) {
               res.json(data);
