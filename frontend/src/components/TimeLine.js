@@ -1,6 +1,7 @@
 import { Divider } from "antd";
 
 export default function TimeLine({ data = [] }) {
+  let totalTime = 0;
   const newData = data ? data.transcription : "";
   const timeArray = newData
     ? newData.map((item, index) => ({
@@ -18,11 +19,17 @@ export default function TimeLine({ data = [] }) {
         ).toString(),
       }))
     : "";
-  const lastEndTime =
-    timeArray.length > 0 && timeArray
-      ? timeArray[timeArray.length - 1].endTime
-      : null;
-  console.log(timeArray, "DDDDDDDDDDDDDDDDDD");
+
+  const newTime = timeArray
+    ? timeArray.map((item) => ({
+        time: item.endTime - item.startTime,
+      }))
+    : "";
+
+  for (let i = 0; i < newTime.length; i++) {
+    totalTime = totalTime + newTime[i].time;
+  }
+
   return (
     <div className="bottom-0 left-0 w-full bg-gradient-to-br from-my-from-color to-my-to-color p-3">
       <div className="flex pr-1">
@@ -41,7 +48,7 @@ export default function TimeLine({ data = [] }) {
                     key={index}
                     style={{
                       width: `${
-                        ((item.endTime - item.startTime) / lastEndTime) * 100
+                        ((item.endTime - item.startTime) / totalTime) * 100
                       }%`,
                     }}
                   >
@@ -51,7 +58,7 @@ export default function TimeLine({ data = [] }) {
                           ? "h-full"
                           : "h-full bg-gradient-to-br from-client-from-color to-client-to-color"
                       }
-                      style={{ width: "100%", height: "60%" }}
+                      style={{ width: "100%", height: "50%" }}
                     ></div>
                   </div>
                 );
@@ -76,7 +83,7 @@ export default function TimeLine({ data = [] }) {
                     key={index}
                     style={{
                       width: `${
-                        ((item.endTime - item.startTime) / lastEndTime) * 100
+                        ((item.endTime - item.startTime) / totalTime) * 100
                       }%`,
                     }}
                   >
@@ -86,7 +93,7 @@ export default function TimeLine({ data = [] }) {
                           ? "h-full bg-gradient-to-br from-agent-from-color to-agent-to-color"
                           : "h-full"
                       }
-                      style={{ width: "100%", height: "60%" }}
+                      style={{ width: "100%", height: "50%" }}
                     ></div>
                   </div>
                 );
@@ -109,7 +116,7 @@ export default function TimeLine({ data = [] }) {
                     className="flex"
                     style={{
                       width: `${
-                        ((item.endTime - item.startTime) / lastEndTime) * 100
+                        ((item.endTime - item.startTime) / totalTime) * 100
                       }%`,
                     }}
                   >

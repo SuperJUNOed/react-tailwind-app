@@ -9,7 +9,7 @@ module.exports = {
         "negative-color": "#FB36F4",
         "positive-color": "#1FC5A8",
         "agent-from-color": "#FF3E9D",
-        "agent-to-color": "#0E1F40",
+        "agent-to-color": "#0E1F404f",
         "client-from-color": "#5761B2",
         "client-to-color": "#1FC5A8",
         "my-from-color": "#FDFCFB",

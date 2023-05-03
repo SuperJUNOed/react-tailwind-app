@@ -18,16 +18,16 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = loginState; // Destructuring email & password from loginState object
-    const response = await fetch('http://localhost:8080/login', {
-      method: 'POST',
+    const response = await fetch("http://localhost:8080/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }),
     });
 
     if (response.ok) {
-      window.location.href = '/main';
+      window.location.href = "/main";
     } else {
       const data = await response.json();
       alert(data.message);
@@ -35,7 +35,11 @@ export default function Login() {
   };
 
   return (
-    <form className="mt-8 space-y-6 w-1/3" style={{marginLeft: "455px"}} onSubmit={handleSubmit}>
+    <form
+      className="mt-8 space-y-6 w-1/3"
+      style={{ marginLeft: "455px" }}
+      onSubmit={handleSubmit}
+    >
       <div className="-space-y-px">
         {fields.map((field) => (
           <Input

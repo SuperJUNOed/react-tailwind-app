@@ -26,19 +26,19 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get('/api/data', (req, res) => {
-  fs.readdir('./jsonfiles', (err, files) => {
+app.get("/api/data", (req, res) => {
+  fs.readdir("./jsonfiles", (err, files) => {
     if (err) {
       console.log(err);
-      res.status(500).send('Error retrieving data');
+      res.status(500).send("Error retrieving data");
     } else {
       const data = [];
 
-      files.forEach(file => {
-        fs.readFile(`./jsonfiles/${file}`, 'utf8', (err, jsonData) => {
+      files.forEach((file) => {
+        fs.readFile(`./jsonfiles/${file}`, "utf8", (err, jsonData) => {
           if (err) {
             console.log(err);
-            res.status(500).send('Error retrieving data');
+            res.status(500).send("Error retrieving data");
           } else {
             data.push(JSON.parse(jsonData));
 
