@@ -1,48 +1,32 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
-// const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 
-// // connect to the MongoDB Database using Mongoose
-// mongoose.connect("mongodb://localhost/myapp", { useNewUrlParser: true });
+app.use(cors());
 
-// // Define the User Schema
-// const userSchema = new mongoose.Schema({
-//   email: String,
-//   password: String,
-// });
+// parse requests of content-type - application/json
+app.use(express.json());
 
-// // Create a Model from the User Schema
-// const User = mongoose.model("User", userSchema);
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
-// API endpoint for User Authentication
-app.post("/api/users/login", async (req, res) => {
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to my application." });
+});
+
+app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
-  // // Find the user with the provided email
-  // const user = await User.findOne({ email });
-  // if (!user) {
-  //   return res.status(401).json({ message: "Invalid Login credentials" });
-  // }
-
-  // // Verify the password
-  // const validPassword = await bcrypt.compare(password, user.password);
-  // if (!validPassword) {
-  //   return res.status(401).json({ message: "Invalid Login credentials" });
-  // }
-
-  // // Create a session (using cookies or JWTs)
-  // req.session.user = user; // Using cookies
-
-  // res.send({ message: "Login Successful" });
-  // Hard-coded email and password for demo purposes
-  if (email === 'superjuno@gmail.com' && password === 'wjd1018115') {
+  if (email === "superjuno1018@gmail.com" && password === "wjd1018115") {
     return res.status(200).json({ message: "Login successful" });
   } else {
     return res.status(401).json({ message: "Invalid email or password" });
   }
 });
 
-// Start the server
-app.listen(5000, () => console.log("Server started"));
+// set port, listen for requests
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});

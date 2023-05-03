@@ -7,7 +7,7 @@ export default function Header({
     linkUrl="#"
 }){
     return(
-        <div className="mb-10">
+        <div className="mb-10 pt-28">
             <div className="flex justify-center">
                 <img 
                     alt=""
